@@ -15,8 +15,6 @@
 * [Odin](https://odindownload.com/download/Odin3_v3.14.4.zip) (Download on computer)
 * [Magisk](https://github.com/topjohnwu/Magisk/releases/tag/v26.4) (Download the file ending with `.apk` on the device)
 * [Frija tool](https://github.com/SlackingVeteran/frija/releases/download/v2.0.23262.4/Frija_v2.0.23262.4.zip) (Download on computer)
-  ### Important Notice:
-  * Frija tool might throw an error saying: `To run this application, you must install .NET.`
 
 ### Necessary information to know about your device:
 * Your device's codename : Can be retrieved from Settings > About Phone > Model Number
@@ -31,3 +29,42 @@ Then your CSC code will be the third word after the two `_` (which in this case 
 * In the second one, enter your CSC code (region).
 * Let it load the firmware then press download to start downloading the file.
 * Expect it to take some time since the full firmware can reach upto 8 gb of size.
+
+### Step 2 : Patch the firmware with Magisk
+* Once frija tool finishes downloading the firmware, extract the compressed file and you should see 5 files, each starting with either `AP`, `BL`, `CP`, `CSC` and `HOME_CSC`.
+* Connect your phone with the computer.
+* Move the file starting with `AP` from your computer to your phone. (Don't `ctrl+x`, move a copy with `ctrl+c`
+* Install the magisk delta apk that was downloaded earlier on your phone.
+* On the home screen, select the first install button (the one inside the box labelled as "Magisk").
+* Select the option that says `Select and patch a file` then select the file starting with `AP` (the file you have previously moved from your computer to your phone) then press `Let's go`
+* Wait for magisk to finish patching the file, and when it's done, magisk should tell you the path to the newly patched file.
+* Move that new patched file (should start with `magisk.....`) to your computer.
+* Congrats, we are now half-way through the rooting process.
+
+### Step 3 : Enter download mode on your phone
+* To do so, power off your phone and when the screen goes blank, start holding the key combo to enter dlm (Download Mode). For your phone's model it should be `Holding vol up and vol down while connecting the phone to a usb c cable (to your computer)`.
+* When it has successfully entered download mode, you should see a blue screen.
+* If you encounter a warning screen, typically the one with the text saying: `A custom OS can cause critical problems.....`, press vol up once
+* You are now on download mode. Leave your phone connected to your computer for now.
+
+### Step 4 : Flash the rooted firmware to your phone
+* Extract [Odin](https://odindownload.com/download/Odin3_v3.14.4.zip) file and run the exe.
+* If your phone is detected by odin (It shows at the top something like `0:[COM8]`). Check the below image to see how odin shows if a device is connected or not:
+![This image shows how odin should display whether a phone is detected or no](https://forensic.manuals.mobiledit.com/__attachments/1818460206/odin%20(2).PNG?inst-v=6e773f4d-7a7a-40f7-bbe3-7018b31bb210)
+  * If it shows, then skip the next additional step. Otherwise:
+     - **Additional step:** Download [Samsung's USB Drivers](https://developer.samsung.com/sdp/file/2ad30860-0932-44e3-bf63-765a5cfa1010) and then run it and continue with the setup. If odin still doesn't detect your phone after that, a restart to your computer could be helpful
+* In the 5 options that odin shows (the ones saying `AP`, `BL`, and so on, select the following files in each:
+  - In the option `BL`, select the file that frija tool downloaded starting with `BL`
+  - In the option `AP`, select the file that magisk patched (the one moved from your phone to computer.
+  - In option `CP`: select the file that frija tool downloaded starting with `CP`.
+  - In option `CSC`: select the file that frija tool downloaded starting with `CSC` (**DON'T SELECT `HOME_CSC`!).
+  - Skip the option `USERDATA`.
+* Once everything is set, press the start button on your computer. This process should take upto 10 mins.
+
+### Step 5 : Complete magisk setup
+* After Odin displays the text `PASS!` in green, and the phone has rebooted, you are now free to disconnect your phone from the computer.
+* Continue with the initial setup on the phone.
+* When it's done, You should see an app on your phone called `Magisk delta` (If not, carry on to the next step). Delete this app.
+* Install magisk delta apk (Link for it is above) and open it.
+* It will ask you for additional setup, just press next and it will reboot your phone.
+* When your phone reboots successfully, you have finally rooted your phone. Congrats
