@@ -50,6 +50,7 @@ Then your CSC code will be the third word after the two `_` (which in this case 
 ### Step 4 : Flash the rooted firmware to your phone
 * Extract [Odin](https://odindownload.com/download/Odin3_v3.14.4.zip) file and run the exe.
 * If your phone is detected by odin (It shows at the top something like `0:[COM8]`). Check the below image to see how odin shows if a device is connected or not:
+
 ![This image shows how odin should display whether a phone is detected or no](https://forensic.manuals.mobiledit.com/__attachments/1818460206/odin%20(2).PNG?inst-v=6e773f4d-7a7a-40f7-bbe3-7018b31bb210)
   * If it shows, then skip the next additional step. Otherwise:
      - **Additional step:** Download [Samsung's USB Drivers](https://developer.samsung.com/sdp/file/2ad30860-0932-44e3-bf63-765a5cfa1010) and then run it and continue with the setup. If odin still doesn't detect your phone after that, a restart to your computer could be helpful
